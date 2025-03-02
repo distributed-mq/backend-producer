@@ -20,13 +20,6 @@ public class TaskController {
         for (int i = 0; i < count; i++) {
             tasks.add("Task " + (startIdx + i));
             log.info("🟡 작업 추가됨: Task {}", startIdx + i);
-
-            // ✅ MQ에 작업을 천천히 넣기 (1초 딜레이)
-            try {
-                Thread.sleep(1000); // 1초씩 대기하면서 처리
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
         }
 
         Map<String, Object> response = new HashMap<>();
